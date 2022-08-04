@@ -10,13 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.ats.projsp.classes.model.ModelLogin;
+import br.com.ats.projsp.dao.DaoModelLoginRepository;
 
 /**
  * O chamado Controller -> são as servlets ou nesse caso ServletLoginController
  */
 @WebServlet(urlPatterns = {"/principal/ServletLogin","/ServletLogin"})/*Mapeamento URL onde são enviados os dados da tela por parâmetros*/
 public class ServletLogin extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
+	
+	private DaoModelLoginRepository loginRepository = new DaoModelLoginRepository();
 
 	/**
 	 * CONSTRUTOR PADRÃO
@@ -48,8 +52,7 @@ public class ServletLogin extends HttpServlet {
 			/**
 			 * Simulação de autenticação
 			 */
-			if (modelLogin.getLogin().equalsIgnoreCase("admin") 
-				&& modelLogin.getSenha().equalsIgnoreCase("admin")) {
+			if (loginRepository.validarAutenticacao(modelLogin)) {
 				
 				/*Pegando os atributos de sessão e manter o usuário logaod no sistema
 				 * Se quiser, pode deixar apenas o login para a senha não ficar na sessão*/
