@@ -19,6 +19,8 @@
 	<h3>${msg}</h3>
 	
 	<form action="ServletLogin" method="post">
+	
+		<input type="hidden" value="<%= request.getParameter("url") %>">
 		
 		<table>
 			<tr>

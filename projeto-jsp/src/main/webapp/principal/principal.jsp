@@ -8,6 +8,7 @@
 <body>
 
 	<h1>Principal, após autenticação</h1>
+	<h3>${msg}</h3>
 
 </body>
 </html>

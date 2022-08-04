@@ -14,7 +14,7 @@ import br.com.ats.projsp.classes.model.ModelLogin;
 /**
  * O chamado Controller -> são as servlets ou nesse caso ServletLoginController
  */
-@WebServlet("/ServletLogin")/*Mapeamento URL onde são enviados os dados da tela por parâmetros*/
+@WebServlet(urlPatterns = {"/principal/ServletLogin","/ServletLogin"})/*Mapeamento URL onde são enviados os dados da tela por parâmetros*/
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,6 +34,7 @@ public class ServletLogin extends HttpServlet {
 		/*Pegando os parâmetros vindos da tela*/
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
+		String url = request.getParameter("url");
 		
 		/**
 		 * Validando os dados vindos da tela por parâmetro
@@ -52,25 +53,29 @@ public class ServletLogin extends HttpServlet {
 				
 				/*Pegando os atributos de sessão e manter o usuário logaod no sistema
 				 * Se quiser, pode deixar apenas o login para a senha não ficar na sessão*/
-				request.getSession().setAttribute("usuarioLogado", modelLogin.getLogin());
+				request.getSession().setAttribute("usuario", modelLogin.getLogin());
+				
+				if (url == null || url.equals("null")) {
+					url = "/principal/principal.jsp";
+				}
 				
 				/**
 				 * redirecionando a página após a autenticação está correta
 				 * 
 				 */
-				RequestDispatcher redirecionar = request.getRequestDispatcher("/principal/principal.jsp");
+				RequestDispatcher redirecionar = request.getRequestDispatcher(url);
 				request.setAttribute("msg", "Usuário Logado com sucesso!");
 				redirecionar.forward(request, response);
 				
 			} else {
 				
-				RequestDispatcher redirecionar = request.getRequestDispatcher("index.jsp");
-				request.setAttribute("msg", "Informe o login e senha corretamente!");
+				RequestDispatcher redirecionar = request.getRequestDispatcher("/index.jsp");
+				request.setAttribute("msg", "Login e/ou senha incorretos!\nPor favor informe dados válidos!");
 				redirecionar.forward(request, response);
 			}
 			
 		} else {
-			RequestDispatcher redirecionar = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher redirecionar = request.getRequestDispatcher("/index.jsp");
 			request.setAttribute("msg", "Informe o login e senha corretamente!");
 			redirecionar.forward(request, response);
 		}
