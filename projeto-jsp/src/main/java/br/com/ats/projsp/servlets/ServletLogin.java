@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * O chamado Controller -> são as servlets ou nesse caso ServletLoginController
+ */
 @WebServlet("/ServletLogin")/*Mapeamento URL onde são enviados os dados da tela por parâmetros*/
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
