@@ -3,6 +3,10 @@ package br.com.ats.projsp.connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public class SingleConnectionBanco {
 
 	
