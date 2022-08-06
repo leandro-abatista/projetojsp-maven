@@ -14,8 +14,9 @@
 </head>
 <body>
 
-
-	<h3>${msg}</h3>
+	<div id="message">
+		<h4>${msg}</h4>
+	</div>
 
 	<div class="card">
 
@@ -25,27 +26,30 @@
 		
 		<div class="card-body">
 
-			<form action="ServletLogin" method="post" class="row g-3">
+			<form action="ServletLogin" method="post" class="row g-3 needs-validation" novalidate>
 
 				<input type="hidden" value="<%=request.getParameter("url")%>">
 
-				<h6>Os campos com (*) são obrigatórios</h6>
-				<br> <br>
-
 				<div class="mb-3">
-					<label for="login" class="form-label">Login:*</label> 
+					<label for="login" class="form-label">Login:</label> 
 					<input id="login" type="text" name="login" class="form-control" 
-						placeholder="Informe seu login">
+						placeholder="Digite seu login" required="required">
+					<div class="invalid-feedback">
+				       Campo obrigatório
+				    </div>
 				</div>
 				
 				<div class="mb-3">
-					<label for="senha" class="form-label">Senha:*</label> 
+					<label for="senha" class="form-label">Senha:</label> 
 					<input id="senha" type="password" name="senha" class="form-control"
-					placeholder="Informe sua senha">
+					placeholder="Digite sua senha" required="required">
+					<div class="invalid-feedback">
+				      Campo obrigatório
+				    </div>
 				</div>
 
 				<div class="d-grid gap-2">
-					<input type="submit" value="Enviar" class="btn btn-primary">
+					<input type="submit" value="Entrar" class="btn btn-primary">
 				</div>
 
 			</form>
@@ -54,10 +58,31 @@
 
 	<!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
 
 
-
+	    (function () {
+	  	  'use strict'
+	
+	  	  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+	  	  var forms = document.querySelectorAll('.needs-validation')
+	
+	  	  // Loop over them and prevent submission
+	  	  Array.prototype.slice.call(forms)
+	  	    .forEach(function (form) {
+	  	      form.addEventListener('submit', function (event) {
+	  	        if (!form.checkValidity()) {
+	  	          event.preventDefault()
+	  	          event.stopPropagation()
+	  	        }
+	
+	  	        form.classList.add('was-validated')
+	  	      }, false)
+	  	    })
+	  	})()
+	  	
     </script>
 </body>
 </html>
