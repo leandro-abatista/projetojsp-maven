@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Ropa+Sans&family=Sarala:wght@400;700&family=Ubuntu:ital,wght@0,400;0,500;1,400&display=swap');
+
+body {
+	background-color: #9C9C9C;
+	font-family: 'Sarala', sans-serif;
+	margin: 0px;
+}
+
+.card{
+	background-color: #CDAA7D;
+	border-radius: 5px;
+	padding: 15px;
+	
+	margin: 2rem 2rem;
+	position: relative;
+	top: 15%;
+	left: 5%;
+	right: 10%;
+	
+	width: 80vw;
+	
+}
+
+.card-header {
+	font-size: 25px;
+}
