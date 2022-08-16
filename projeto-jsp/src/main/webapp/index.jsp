@@ -7,16 +7,20 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    	
+    <script type="text/javascript" src="resources/js/notify.js"></script>
     
     <link rel="stylesheet" href="resources/css/styles.css" type="text/css">
-<title>Projeto JSP</title>
+	<title>Projeto JSP</title>
 </head>
 <body>
-
-	<div id="message">
-		<h4>${msg}</h4>
-	</div>
+	
+	
+	<h4 id="msgErro">${msgErro}</h4>
 
 	<div class="card">
 
@@ -42,14 +46,14 @@
 				<div class="mb-3">
 					<label for="senha" class="form-label">Senha:</label> 
 					<input id="senha" type="password" name="senha" class="form-control"
-					placeholder="Digite sua senha" required="required">
+						placeholder="Digite sua senha" required="required">
 					<div class="invalid-feedback">
 				      Campo obrigatório
 				    </div>
 				</div>
 
 				<div class="d-grid gap-2">
-					<input type="submit" value="Entrar" class="btn btn-primary">
+					<input id="botaoEntrar" type="submit" value="Entrar" class="btn btn-primary">
 				</div>
 
 			</form>
@@ -62,7 +66,7 @@
     
     <script type="text/javascript">
 
-
+		
 	    (function () {
 	  	  'use strict'
 	

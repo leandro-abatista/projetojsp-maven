@@ -16,7 +16,7 @@ public class SingleConnectionBanco {
 	private static Connection connection = null;
 	
 	/**
-	 * Chamar de forma direta de qualquer lugar do sistema
+	 * Chama de forma direta de qualquer lugar do sistema
 	 */
 	static {
 		conectar();

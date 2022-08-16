@@ -1,3 +1,5 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -24,12 +26,15 @@
 		<div class="card-header bg-danger mb-3">Mensagem de erro!</div>
 		<div class="card-body">
 			<h5 class="card-title">Entre em contato com a equipe de suporte do sistema.</h5>
-			<textarea class="form-control" id="message" rows="3">${msg}</textarea>
+			<textarea class="form-control" id="message" rows="3">${msgPagErro}</textarea>
 		</div>
 		<div class="card-footer text-muted">
+			<output>
 			<% 
-				
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+				dtf.format(LocalDateTime.now());
 			%>
+			</output>
 		</div>
 	</div>
 

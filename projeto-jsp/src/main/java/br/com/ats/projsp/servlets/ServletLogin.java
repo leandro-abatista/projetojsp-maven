@@ -30,7 +30,10 @@ public class ServletLogin extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
+		//chamando este método para não deixar a tela em branco
+		doPost(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,26 +72,25 @@ public class ServletLogin extends HttpServlet {
 					 * 
 					 */
 					RequestDispatcher redirecionar = request.getRequestDispatcher(url);
-					request.setAttribute("msg", "Usuário Logado com sucesso!");
+					request.setAttribute("msgSucesso", "Usuário Logado com sucesso!");
 					redirecionar.forward(request, response);
 					
 				} else {
-					
 					RequestDispatcher redirecionar = request.getRequestDispatcher("/index.jsp");
-					request.setAttribute("msg", "Login e/ou senha incorretos!\nPor favor informe dados válidos!");
+					request.setAttribute("msgErro", "Login e/ou senha incorretos!\nPor favor informe dados válidos!");
 					redirecionar.forward(request, response);
 				}
 				
 			} else {
 				RequestDispatcher redirecionar = request.getRequestDispatcher("/index.jsp");
-				request.setAttribute("msg", "Informe o login e senha corretamente!");
+				request.setAttribute("msgErro", "Informe o login e senha corretamente!");
 				redirecionar.forward(request, response);
 			}
 		
 		}catch (Exception e) {
 			e.printStackTrace();
 			RequestDispatcher redirecionar = request.getRequestDispatcher("erro.jsp");
-			request.setAttribute("msg", e.getMessage());
+			request.setAttribute("msgPagErro", e.getMessage());
 			redirecionar.forward(request, response);
 		}
 	}
