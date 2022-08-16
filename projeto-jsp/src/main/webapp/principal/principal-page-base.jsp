@@ -37,7 +37,7 @@
                                         <div class="row">
                                         <!-- Início Aqui dentro, fica todo o conteúdo --> 
                                         
-                                        	<h1>Conteúdo das páginas do sistema</h1>
+                                        	<h1>Conteúdo das páginas base do sistema jsp</h1>
                                            
                                         <!-- Fim Aqui dentro, fica todo o conteúdo -->    
                                         </div>
