@@ -11,7 +11,7 @@
 					alt="User-Profile-Image">
 				<div class="user-details">
 					<!-- Aqui muda o nome da barra lateral -->
-					<span id="more-details">ArfaxTechSoft<i class="fa fa-caret-down"></i></span>
+					<span id="more-details"><%= session.getAttribute("usuario") %><i class="fa fa-caret-down"></i></span>
 				</div>
 			</div>
 
