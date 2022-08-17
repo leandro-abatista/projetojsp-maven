@@ -20,6 +20,8 @@ public class ServletLogin extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private String urlParaAutenticacao = "index.jsp";
+	
 	private DaoModelLoginRepository loginRepository = new DaoModelLoginRepository();
 
 	/**
@@ -31,11 +33,27 @@ public class ServletLogin extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//chamando este método para não deixar a tela em branco
-		doPost(request, response);
+		String acao = request.getParameter("acao");
+		
+		/**
+		 * Se o logout for diferente de null e diferente de vazio e a ação for igual ao logout
+		 * a sessão é finalizada excluindo os dados do usuário logado e direcionando para a página
+		 * de autenticação.
+		 */
+		if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("logout")) {
+			request.getSession().invalidate();//Invalida a sessão, exclui os dados do usuário logado na sessão
+			request.getRequestDispatcher(urlParaAutenticacao).forward(request, response);
+		} else {
+			
+			// chamando este método para não deixar a tela em branco
+			doPost(request, response);
+		}
 		
 	}
 
+	/**
+	 * Recebe os dados enviados por um formulário
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
