@@ -50,7 +50,8 @@
 												<div class="form-group row">
 													<label for="id" class="form-control-label col-form-label-lg">ID:</label>
 													<div class="col-md-2">
-														<input id="id" type="text" name="id" class="form-control form-control-lg" readonly="readonly">
+														<input id="id" type="text" name="id" class="form-control form-control-lg" 
+															readonly="readonly" value="${modelo.id}">
 													</div>
 												</div>
 												
@@ -58,13 +59,13 @@
 													<label for="nome" class="form-control-label col-form-label-lg">Nome:</label>
 													<div class="col-md-6">
 														<input id="nome" type="text" name="nome" class="form-control form-control-lg" 
-															maxlength="120" required="required">
+															maxlength="120" required="required" value="${modelo.nome}">
 													</div>
 													
 													<label for="cpf" class="form-control-label col-form-label-lg">CPF:</label>
 													<div class="col-md-3">
 														<input id="cpf" type="text" name="cpf" class="form-control form-control-lg" 
-															maxlength="14" required="required">
+															maxlength="14" required="required" value="${modelo.cpf}">
 													</div>
 												</div>
 
@@ -72,7 +73,7 @@
 													<label for="email" class="form-control-label col-form-label-lg">Email:</label> 
 													<div class="col-md-6">
 														<input type="email" name="email" class="form-control form-control-lg"
-															id="email" autocomplete="off" required="required">
+															id="email" autocomplete="off" required="required" value="${modelo.email}">
 													</div>
 												</div>
 
@@ -80,13 +81,13 @@
 													<label for="login" class="form-control-label col-form-label-lg">Login:</label>
 													<div class="col-md-5">
 														<input id="login" type="text" name="login" class="form-control form-control-lg" 
-															maxlength="50" autocomplete="off" required="required">
+															maxlength="50" autocomplete="off" required="required" value="${modelo.login}">
 													</div>
 													
 													<label for="senha" class="form-control-label col-form-label-lg">Senha:</label>
 													<div class="col-md-5">
 														<input id="senha" type="password" name="senha" class="form-control form-control-lg" 
-															maxlength="10" autocomplete="off" required="required">
+															maxlength="10" autocomplete="off" required="required" value="${modelo.senha}">
 													</div>
 												</div>
 												

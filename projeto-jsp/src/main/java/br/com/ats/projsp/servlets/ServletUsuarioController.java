@@ -45,6 +45,7 @@ public class ServletUsuarioController extends HttpServlet {
 		modelo.setSenha(senha);
 		
 		//APÓS SALVAR, A PÁGINA É REDIRECIONADA PARA CADASTRO-USUARIO.JSP
+		request.setAttribute("modelo", modelo);
 		request.getRequestDispatcher("principal/cadastro-usuario.jsp").forward(request, response);
 	}
 
