@@ -5,6 +5,8 @@ import java.util.Objects;
 
 public class GenericDomain implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 
 	public Long getId() {

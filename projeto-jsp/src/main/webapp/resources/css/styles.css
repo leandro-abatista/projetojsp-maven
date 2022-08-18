@@ -12,8 +12,6 @@ form {
 }
 
 .card{
-	box-shadow: 1px 1px 5px #ccc;
-	background-color: #CDAA7D;
 	border-radius: 5px;
 	padding: 15px;
 	
@@ -29,7 +27,7 @@ form {
 
 
 .card-body{
-	width: 30vw;
+	width: 60vw;
 }
 
 .card-header h1{
@@ -43,6 +41,10 @@ form {
 
 .card-body input, label{
 	font-size: 18px;
+}
+
+.style-botao{
+	font-weight: bold;
 }
 
 

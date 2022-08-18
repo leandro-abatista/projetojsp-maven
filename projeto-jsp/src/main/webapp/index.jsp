@@ -19,18 +19,17 @@
 </head>
 <body>
 	
-	
-	<h4 id="msgErro">${msgErro}</h4>
-
 	<div class="card">
-
-		<div class="card-header text-center">
-			<h1>Olá, Seja Bem vindo ao projeto JSP</h1>
-		</div>
 		
+		<div class="alert alert-primary" role="alert">
+			<strong><h6 id="msgErro">${msgErro}</h6></strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	
 		<div class="card-body">
 
-			<form action="ServletLogin" method="post" class="row g-3 needs-validation" novalidate>
+			<form action="<%= request.getContextPath() %>/ServletLogin" method="post" 
+				class="row g-3 needs-validation" novalidate>
 
 				<input type="hidden" value="<%=request.getParameter("url")%>">
 
@@ -53,7 +52,7 @@
 				</div>
 
 				<div class="d-grid gap-2">
-					<input id="botaoEntrar" type="submit" value="Entrar" class="btn btn-primary">
+					<input id="botaoEntrar" type="submit" value="Acessar" class="btn btn-primary">
 				</div>
 
 			</form>
