@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,12 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.ats.projsp.classes.model.ModelLogin;
+import br.com.ats.projsp.dao.DaoUsuarioRepository;
 
 
 @WebServlet("/ServletUsuarioController")
 public class ServletUsuarioController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private DaoUsuarioRepository repository = new DaoUsuarioRepository();
        
     
     public ServletUsuarioController() {
@@ -30,6 +34,7 @@ public class ServletUsuarioController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		try {
 		//PEGANDO OS PARÂMETROS QUE VEM DA TELA
 		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
@@ -48,9 +53,19 @@ public class ServletUsuarioController extends HttpServlet {
 		modelo.setSenha(senha);
 		modelo.setDataCadastro(Timestamp.valueOf(LocalDateTime.now()));
 		
+		modelo = repository.salvar(modelo);
+		
+		request.setAttribute("msgSucesso", "Operação realizada com sucesso!");
 		//APÓS SALVAR, A PÁGINA É REDIRECIONADA PARA CADASTRO-USUARIO.JSP
 		request.setAttribute("modelo", modelo);
 		request.getRequestDispatcher("principal/cadastro-usuario.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			//CASO HAJA ALGUM ERRO, SERÁ DIRECIONADO PARA A PÁGINA DE ERRO
+			request.getRequestDispatcher("erro.jsp").forward(request, response);
+			request.setAttribute("msgPagErro", "Ocorreu um erro: " + e.getMessage());
+		}
+		
 	}
 
 }

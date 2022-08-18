@@ -37,6 +37,14 @@
 									<div class="page-body">
 										<!-- Início Aqui dentro, fica todo o conteúdo -->
 
+										<div class="alert alert-success d-flex align-items-center" role="alert"
+											style="padding: 15px">
+											<svg class="bi flex-shrink-0 me-2" width="24" height="24"
+												role="img" aria-label="Success:">
+												<use xlink:href="#check-circle-fill" /></svg>
+											<div style="font-weight: 700;">${msgSucesso}</div>
+										</div>
+
 										<div class="card-block">
 											<h1 
 											style="font-size: 25px; background: #B0C4DE; border-radius: 4px; padding: 5px; font-weight: 400;"
