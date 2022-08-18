@@ -1,6 +1,9 @@
 package br.com.ats.projsp.servlets;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +46,7 @@ public class ServletUsuarioController extends HttpServlet {
 		modelo.setEmail(email);
 		modelo.setLogin(login);
 		modelo.setSenha(senha);
+		modelo.setDataCadastro(Timestamp.valueOf(LocalDateTime.now()));
 		
 		//APÓS SALVAR, A PÁGINA É REDIRECIONADA PARA CADASTRO-USUARIO.JSP
 		request.setAttribute("modelo", modelo);

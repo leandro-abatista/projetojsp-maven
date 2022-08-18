@@ -1,5 +1,7 @@
 package br.com.ats.projsp.classes.model;
 
+import java.sql.Timestamp;
+
 /**
  * Classe de autenticação
  */
@@ -12,6 +14,7 @@ public class ModelLogin extends GenericDomain {
 	private String email;
 	private String login;
 	private String senha;
+	private Timestamp dataCadastro;
 
 	public String getLogin() {
 		return login;
@@ -51,6 +54,14 @@ public class ModelLogin extends GenericDomain {
 	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public Timestamp getDataCadastro() {
+		return dataCadastro;
+	}
+	
+	public void setDataCadastro(Timestamp dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 
 }
