@@ -18,18 +18,37 @@ public class DaoUsuarioRepository {
 	
 	public ModelLogin salvar(ModelLogin objeto) throws Exception {
 		
-		String sql = "INSERT INTO public.model_login(nome, cpf, email, login, senha, data_cadastro)"
-				+ "    VALUES (?, ?, ?, ?, ?, ?);";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, objeto.getNome());
-		statement.setString(2, objeto.getCpf());
-		statement.setString(3, objeto.getEmail());
-		statement.setString(4, objeto.getLogin());
-		statement.setString(5, objeto.getSenha());
-		statement.setTimestamp(6, objeto.getDataCadastro());
+		if(objeto.isNovo()) {
+			
+			String sql = "INSERT INTO public.model_login(nome, cpf, email, login, senha, data_cadastro)"
+					+ "    VALUES (?, ?, ?, ?, ?, ?);";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, objeto.getNome());
+			statement.setString(2, objeto.getCpf());
+			statement.setString(3, objeto.getEmail());
+			statement.setString(4, objeto.getLogin());
+			statement.setString(5, objeto.getSenha());
+			statement.setTimestamp(6, objeto.getDataCadastro());
+			
+			statement.execute();
+			connection.commit();
 		
-		statement.execute();
-		connection.commit();
+		} else {
+			
+			String sql = "UPDATE public.model_login"
+					+ " SET nome=?, cpf=?, email=?, login=?, senha=?"
+					+ " WHERE id = "+objeto.getId()+";";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, objeto.getNome());
+			statement.setString(2, objeto.getCpf());
+			statement.setString(3, objeto.getEmail());
+			statement.setString(4, objeto.getLogin());
+			statement.setString(5, objeto.getSenha());
+			
+			statement.executeUpdate();
+			connection.commit();
+			
+		}
 		
 		return this.consultar(objeto.getLogin(), objeto.getCpf());
 	}

@@ -15,6 +15,15 @@ public class ModelLogin extends GenericDomain {
 	private String login;
 	private String senha;
 	private Timestamp dataCadastro;
+	
+	public boolean isNovo() {
+		if (id == null) {
+			return true;//inseri um novo
+		} else if(id != null && id > 0) {
+			return false;//atualiza um id existente
+		}
+		return id == null;
+	}
 
 	public String getLogin() {
 		return login;
