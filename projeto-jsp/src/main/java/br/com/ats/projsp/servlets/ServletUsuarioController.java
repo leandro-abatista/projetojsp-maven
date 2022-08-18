@@ -35,6 +35,9 @@ public class ServletUsuarioController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+		String mensagemSucesso = "Operação realizada com sucesso!";
+		String mensagemAlerta = "Já existe usuário com o mesmo login, informe um login válido!";
+			
 		//PEGANDO OS PARÂMETROS QUE VEM DA TELA
 		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
@@ -53,9 +56,14 @@ public class ServletUsuarioController extends HttpServlet {
 		modelo.setSenha(senha);
 		modelo.setDataCadastro(Timestamp.valueOf(LocalDateTime.now()));
 		
-		modelo = repository.salvar(modelo);
+		if (repository.validarLogin(modelo.getLogin()) && modelo.getId() == null) {
+			request.setAttribute("msg", mensagemAlerta);
+		} else {
 		
-		request.setAttribute("msgSucesso", "Operação realizada com sucesso!");
+			modelo = repository.salvar(modelo);
+		
+		}
+		request.setAttribute("msg", mensagemSucesso);
 		//APÓS SALVAR, A PÁGINA É REDIRECIONADA PARA CADASTRO-USUARIO.JSP
 		request.setAttribute("modelo", modelo);
 		request.getRequestDispatcher("principal/cadastro-usuario.jsp").forward(request, response);

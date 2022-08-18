@@ -39,7 +39,7 @@ public class DaoUsuarioRepository {
 		
 		String sql = "SELECT id, nome, cpf, email, login, senha "
 				+ " FROM model_login"
-				+ " WHERE login = UPPER('"+login+"') OR cpf = UPPER('"+cpf+"')";
+				+ " WHERE upper(login) = upper('"+login+"') OR cpf = ('"+cpf+"');";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		ResultSet resultado = statement.executeQuery();
 		if (resultado.next()) {//Se tem um resultado
@@ -52,5 +52,18 @@ public class DaoUsuarioRepository {
 		}
 		
 		return modelo;
+	}
+	
+	public boolean validarLogin(String login) throws Exception {
+		
+		String sql = "SELECT count(1) > 0 as existe FROM model_login"
+				+ " WHERE upper(login) = upper('"+login+"');";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		ResultSet resultado = statement.executeQuery();
+		if (resultado.next()) {//o next() entra nos resultados do sql
+			return resultado.getBoolean("existe");
+		}
+		
+		return false;
 	}
 }
