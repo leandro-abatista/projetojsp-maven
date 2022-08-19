@@ -146,17 +146,39 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <h5 class="modal-title" id="exampleModalLabel">Pesquisa de Usuário</h5>
 	        <button type="button" class="close" data-dismiss="modal" style="font-weight: bold; font-size: 18px" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        ...
-	      </div>
+
+					<div class="input-group mb-6">
+						<input id="nomeBusca" type="text" class="form-control form-control-lg" placeholder="Informe o nome">
+						<div class="input-group-append">
+							<button id="botaoBusca" class="btn btn-success" style="font-weight: bold; font-size: 18px" 
+							type="button" onclick="buscarUsuario();">Buscar</button>
+						</div>
+					</div>
+
+					<table class="table table-sm table-responsive">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">NOME</th>
+								<th scope="col">CPF</th>
+								<th scope="col">EMAIL</th>
+								<th scope="col">DATA CADASTRO</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+
+				</div>
 	      <div class="modal-footer">
 	        <button type="button" style="font-weight: bold; font-size: 18px" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-	        <button type="button" style="font-weight: bold; font-size: 18px" class="btn btn-primary">Buscar</button>
 	      </div>
 	    </div>
 	  </div>
@@ -181,7 +203,7 @@
 				document.getElementById("formUsuario").submit();
 			} 
 		}
-
+		
 		function criarDeleteAjax() {
 			if (confirm('Deseja realmente excluir o registro?')) {
 				var urlAction = document.getElementById('formUsuario').action;
@@ -201,6 +223,18 @@
 				}).fail(function(xhr, status, errorThrow) {
 					alert('Erro ao deletar registro por ID: ' + xhr.responseText);
 				});
+			}
+		}
+
+		function limparCampoBusca() {
+			document.getElementById("nomeBusca").value = '';/*limpa o campo após a busca*/
+		}
+
+		function buscarUsuario() {
+			var nomeBusca = document.getElementById('nomeBusca').value;
+			if (nomeBusca != null && nomeBusca != '' && nomeBusca.trim() != '') {//validando para verificar se tem valor para buscar no banco de dados
+				alert(nomeBusca);
+				limparCampoBusca();
 			}
 		}
 
