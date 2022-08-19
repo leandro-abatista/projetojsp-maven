@@ -102,7 +102,8 @@
 												
 												
 												<div class="form-group">
-													<button  style="font-weight: bold; font-size: 18px" class="btn btn-primary waves-effect waves-light">Novo </button>
+													<button  style="font-weight: bold; font-size: 18px" 
+														onclick="limparForm();"	class="btn btn-primary waves-effect waves-light">Novo </button>
 													<button  style="font-weight: bold; font-size: 18px" class="btn btn-success waves-effect waves-light">Salvar</button>
                    								    <button  style="font-weight: bold; font-size: 18px" class="btn btn-warning waves-effect waves-light">Atualizar</button>
                     								<button  style="font-weight: bold; font-size: 18px" class="btn btn-danger waves-effect waves-light">Excluir</button>
@@ -126,6 +127,17 @@
 
 	<!-- Aqui chama a página javascriptfile -->
 	<jsp:include page="javascriptfile.jsp" />
+	
+	<script type="text/javascript">
+
+		function limparForm() {
+			var elements = document.getElementById("formUsuario").elements;/*retorna os elementos html dentro do form*/
+
+			for(p = 0; p < elements.length; p++){
+				elements[p].value = '';
+			}
+		}
+	</script>
 
 </body>
 
