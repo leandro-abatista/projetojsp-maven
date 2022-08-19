@@ -144,10 +144,16 @@
 		}
 
 		function criarDelete() {
-			document.getElementById("formUsuario").method = 'get';
-			document.getElementById("acao").value = 'deletar';
-			document.getElementById("formUsuario").submit();
+			if (confirm('Deseja realmente excluir o registro?')) {
+				document.getElementById("formUsuario").method = 'get';
+				document.getElementById("acao").value = 'deletar';
+				document.getElementById("formUsuario").submit();
+			} 
 		}
+
+		
+
+		
 	</script>
 
 </body>

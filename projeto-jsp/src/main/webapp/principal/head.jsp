@@ -16,6 +16,7 @@
       <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
       <meta name="author" content="Leandro Amorim Batista" />
       
+     
 <!--       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
       <!-- Favicon icon -->
       <link rel="icon" href="<%= request.getContextPath() %>/assets/images/favicon.ico" type="image/x-icon">
@@ -37,5 +38,4 @@
       <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/assets/css/style.css">
-      
  </head>

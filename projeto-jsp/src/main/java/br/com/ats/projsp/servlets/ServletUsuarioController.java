@@ -43,7 +43,7 @@ public class ServletUsuarioController extends HttpServlet {
 			}
 		} catch (Exception e) {
 			// CASO HAJA ALGUM ERRO, SER� DIRECIONADO PARA A P핯INA DE ERRO
-			request.getRequestDispatcher("erro.jsp").forward(request, response);
+			request.getRequestDispatcher("./erro.jsp").forward(request, response);
 			request.setAttribute("msgPagErro", e.getMessage());
 		}
 
@@ -95,7 +95,7 @@ public class ServletUsuarioController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			// CASO HAJA ALGUM ERRO, SER� DIRECIONADO PARA A P핯INA DE ERRO
-			request.getRequestDispatcher("/erro.jsp").forward(request, response);
+			request.getRequestDispatcher("./erro.jsp").forward(request, response);
 			request.setAttribute("msgPagErro", e.getMessage());
 		}
 
