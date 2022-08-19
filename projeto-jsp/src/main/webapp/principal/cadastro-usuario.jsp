@@ -112,7 +112,15 @@
 														class="btn btn-success waves-effect waves-light">Salvar</button>
                     								<button type="button" style="font-weight: bold; font-size: 18px" 
                     									onclick="criarDeleteAjax();" class="btn btn-danger waves-effect waves-light">Excluir</button>
-												</div>
+
+														<!-- Button trigger modal -->
+														<button
+															style="font-weight: bold; font-size: 18px" 
+															type="button" class="btn btn-secondary"
+															data-toggle="modal" data-target="#modalusuario">
+															Consultar
+														</button>
+													</div>
 											</div>
 										</form>
 									</div>
@@ -132,6 +140,29 @@
 
 	<!-- Aqui chama a página javascriptfile -->
 	<jsp:include page="javascriptfile.jsp" />
+	
+	<!-- Modal -->
+	<div class="modal fade" id="modalusuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" style="font-weight: bold; font-size: 18px" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" style="font-weight: bold; font-size: 18px" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	        <button type="button" style="font-weight: bold; font-size: 18px" class="btn btn-primary">Buscar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	
 	
 	<script type="text/javascript">
 
