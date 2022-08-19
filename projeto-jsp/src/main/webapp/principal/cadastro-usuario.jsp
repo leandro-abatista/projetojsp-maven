@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
 
-<jsp:include page="head.jsp" /><!-- Aqui est√° incluindo nesta p√°gina o nosso head -->
+<jsp:include page="head.jsp" /><!-- Aqui est· incluindo nesta p·gina o nosso head -->
 
 <body>
 	<!-- Pre-loader start -->
@@ -14,7 +13,7 @@
 		<div class="pcoded-overlay-box"></div>
 		<div class="pcoded-container navbar-wrapper">
 
-			<!-- Aqui chama a p√°gina de inclus√£o navbar -->
+			<!-- Aqui chama a p·gina de inclus„o navbar -->
 			<jsp:include page="navbar.jsp" />
 
 			<div class="pcoded-main-container">
@@ -25,7 +24,7 @@
 					<div class="pcoded-content">
 						<!-- Page-header start -->
 
-						<!-- Aqui chama a p√°gina page-header -->
+						<!-- Aqui chama a p·gina page-header -->
 						<jsp:include page="page-header.jsp" />
 
 						<!-- Page-header end -->
@@ -35,10 +34,10 @@
 								<div class="page-wrapper">
 									<!-- Page-body start -->
 									<div class="page-body">
-										<!-- In√≠cio Aqui dentro, fica todo o conte√∫do -->
+										<!-- InÌcio Aqui dentro, fica todo o conte˙do -->
 
 										<div class="alert alert-success d-flex align-items-center" role="alert"
-											style="padding: 15px">
+											style="padding: 15px;">
 											<svg class="bi flex-shrink-0 me-2" width="24" height="24"
 												role="img" aria-label="Success:">
 												<use xlink:href="#check-circle-fill" /></svg>
@@ -48,13 +47,18 @@
 										<div class="card-block">
 											<h1 
 											style="font-size: 25px; background: #B0C4DE; border-radius: 4px; padding: 5px; font-weight: 400;"
-												class="sub-title">Cadastro - Usu√°rio</h1>
+												class="sub-title">Cadastro - Usu·rio</h1>
 										</div>
 										
 										<div class="card" style="background: #B0C4DE;">
-										<!-- Formul√°rio de cadastro de usu√°rio -->
-										<form id="formUsuario" action="<%= request.getContextPath() %>/ServletUsuarioController" method="post">
+										<!-- Formul·rio de cadastro de usu·rio -->
+										<form id="formUsuario" action="<%= request.getContextPath() %>/ServletUsuarioController" 
+											method="post">
+											
+											<input type="hidden" name="acao" id="acao" value="">
+											
 											<div class="card-block">
+											
 												<div class="form-group row">
 													<label for="id" class="form-control-label col-form-label-lg">ID:</label>
 													<div class="col-md-2">
@@ -76,13 +80,13 @@
 															maxlength="14" required="required" value="${modelo.cpf}">
 													</div>
 												</div>
-
+												
 												<div class="form-group row">
 													<label for="email" class="form-control-label col-form-label-lg">Email:</label> 
 													<div class="col-md-6">
 														<input type="email" name="email" class="form-control form-control-lg"
 															id="email" autocomplete="off" required="required" value="${modelo.email}">
-													</div>
+													</div>												
 												</div>
 
 												<div class="form-group row">
@@ -102,17 +106,18 @@
 												
 												
 												<div class="form-group">
-													<button  style="font-weight: bold; font-size: 18px" 
+													<button type="button"  style="font-weight: bold; font-size: 18px" 
 														onclick="limparForm();"	class="btn btn-primary waves-effect waves-light">Novo </button>
-													<button  style="font-weight: bold; font-size: 18px" class="btn btn-success waves-effect waves-light">Salvar</button>
-                   								    <button  style="font-weight: bold; font-size: 18px" class="btn btn-warning waves-effect waves-light">Atualizar</button>
-                    								<button  style="font-weight: bold; font-size: 18px" class="btn btn-danger waves-effect waves-light">Excluir</button>
+													<button  style="font-weight: bold; font-size: 18px" 
+														class="btn btn-success waves-effect waves-light">Salvar</button>
+                    								<button type="button" style="font-weight: bold; font-size: 18px" 
+                    									onclick="criarDelete();" class="btn btn-danger waves-effect waves-light">Excluir</button>
 												</div>
 											</div>
 										</form>
 									</div>
 
-										<!-- Fim Aqui dentro, fica todo o conte√∫do -->
+										<!-- Fim Aqui dentro, fica todo o conte˙do -->
 									</div>
 								</div>
 								<!-- Page-body end -->
@@ -125,7 +130,7 @@
 		</div>
 	</div>
 
-	<!-- Aqui chama a p√°gina javascriptfile -->
+	<!-- Aqui chama a p·gina javascriptfile -->
 	<jsp:include page="javascriptfile.jsp" />
 	
 	<script type="text/javascript">
@@ -136,6 +141,12 @@
 			for(p = 0; p < elements.length; p++){
 				elements[p].value = '';
 			}
+		}
+
+		function criarDelete() {
+			document.getElementById("formUsuario").method = 'get';
+			document.getElementById("acao").value = 'deletar';
+			document.getElementById("formUsuario").submit();
 		}
 	</script>
 
