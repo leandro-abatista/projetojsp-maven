@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
@@ -38,7 +39,7 @@
 					<input id="login" type="text" name="login" class="form-control" 
 						placeholder="Digite seu login" required="required">
 					<div class="invalid-feedback">
-				       Campo obrigatÃ³rio
+				       Campo obrigatório
 				    </div>
 				</div>
 				
@@ -47,7 +48,7 @@
 					<input id="senha" type="password" name="senha" class="form-control"
 						placeholder="Digite sua senha" required="required">
 					<div class="invalid-feedback">
-				      Campo obrigatÃ³rio
+				      Campo obrigatório
 				    </div>
 				</div>
 

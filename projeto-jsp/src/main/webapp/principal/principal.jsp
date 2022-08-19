@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
 
-<jsp:include page="head.jsp"/><!-- Aqui estÃ¡ incluindo nesta pÃ¡gina o nosso head -->
+<jsp:include page="head.jsp"/><!-- Aqui está incluindo nesta página o nosso head -->
 
   <body>
   <!-- Pre-loader start -->
@@ -13,7 +13,7 @@
       <div class="pcoded-overlay-box"></div>
       <div class="pcoded-container navbar-wrapper">
           
-          <!-- Aqui chama a pÃ¡gina de inclusÃ£o navbar -->
+          <!-- Aqui chama a página de inclusão navbar -->
           <jsp:include page="navbar.jsp"/>
 
           <div class="pcoded-main-container">
@@ -24,7 +24,7 @@
                   <div class="pcoded-content">
                       <!-- Page-header start -->
                       
-                      <!-- Aqui chama a pÃ¡gina page-header -->
+                      <!-- Aqui chama a página page-header -->
                       <jsp:include page="page-header.jsp"/>
                       
                       <!-- Page-header end -->
@@ -35,11 +35,11 @@
                                     <!-- Page-body start -->
                                     <div class="page-body">
                                         <div class="row">
-                                        <!-- InÃ­cio Aqui dentro, fica todo o conteÃºdo --> 
+                                        <!-- Início Aqui dentro, fica todo o conteúdo --> 
                                         
-                                        	<h1>ConteÃºdo das pÃ¡ginas do sistema</h1>
+                                        	<h1>Conteúdo das páginas do sistema</h1>
                                            
-                                        <!-- Fim Aqui dentro, fica todo o conteÃºdo -->    
+                                        <!-- Fim Aqui dentro, fica todo o conteúdo -->    
                                         </div>
                                     </div>
                                     <!-- Page-body end -->
@@ -53,7 +53,7 @@
         </div>
     </div>
    
-   <!-- Aqui chama a pÃ¡gina javascriptfile -->
+   <!-- Aqui chama a página javascriptfile -->
     <jsp:include page="javascriptfile.jsp"/>
     
 </body>

@@ -40,6 +40,13 @@ public class ServletUsuarioController extends HttpServlet {
 				repository.deletar(Long.parseLong(idUser));
 				request.setAttribute("msg", mensagemExclusao);
 				request.getRequestDispatcher("principal/cadastro-usuario.jsp").forward(request, response);
+			} else if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("deletarComAjax")) {
+				String idUser = request.getParameter("id");
+
+				repository.deletar(Long.parseLong(idUser));
+				response.getWriter().write(mensagemExclusao);//isso é usado para o ajax
+			} else {
+				request.getRequestDispatcher("principal/cadastro-usuario.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
 			// CASO HAJA ALGUM ERRO, SERÁ DIRECIONADO PARA A PÁGINA DE ERRO

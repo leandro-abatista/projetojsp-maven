@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <nav class="pcoded-navbar">
 	<div class="sidebar_toggle">
@@ -41,7 +41,7 @@
 						<i class="ti-home"></i>
 							<b>D</b>
 					</span> 
-					<span class="pcoded-mtext" data-i18n="nav.dash.main">In√≠cio</span> 
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">InÌcio</span> 
 					<span class="pcoded-mcaret"></span>
 				</a>
 			</li>
@@ -59,7 +59,7 @@
 						<span class="pcoded-micon">
 							<i class="ti-angle-right"></i>
 						</span> 
-						<span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Cad. Usu√°rio</span> 
+						<span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Cad. Usu·rio</span> 
 						<span class="pcoded-mcaret"></span>
 					</a>
 				</li>

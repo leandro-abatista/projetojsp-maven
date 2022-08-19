@@ -41,7 +41,7 @@
 											<svg class="bi flex-shrink-0 me-2" width="24" height="24"
 												role="img" aria-label="Success:">
 												<use xlink:href="#check-circle-fill" /></svg>
-											<div style="font-weight: 700;">${msg}</div>
+											<div style="font-weight: 700;" id="mensagem">${msg}</div>
 										</div>
 
 										<div class="card-block">
@@ -111,7 +111,7 @@
 													<button  style="font-weight: bold; font-size: 18px" 
 														class="btn btn-success waves-effect waves-light">Salvar</button>
                     								<button type="button" style="font-weight: bold; font-size: 18px" 
-                    									onclick="criarDelete();" class="btn btn-danger waves-effect waves-light">Excluir</button>
+                    									onclick="criarDeleteAjax();" class="btn btn-danger waves-effect waves-light">Excluir</button>
 												</div>
 											</div>
 										</form>
@@ -151,7 +151,27 @@
 			} 
 		}
 
-		
+		function criarDeleteAjax() {
+			if (confirm('Deseja realmente excluir o registro?')) {
+				var urlAction = document.getElementById('formUsuario').action;
+				var idUser = document.getElementById('id').value;
+
+				//fazendo o ajax
+				$.ajax({
+					method: 'GET',
+					url: urlAction,
+					data: 'id=' + idUser + '&acao=deletarComAjax',
+					success: function(response) {
+						limparForm();//após a exclusão, limpa o formulário
+						//alert(response);//a string com a response de exclusão, vem da servletUsuarioController
+						document.getElementById('mensagem').textContent = response;
+					}
+					
+				}).fail(function(xhr, status, errorThrow) {
+					alert('Erro ao deletar registro por ID: ' + xhr.responseText);
+				});
+			}
+		}
 
 		
 	</script>
