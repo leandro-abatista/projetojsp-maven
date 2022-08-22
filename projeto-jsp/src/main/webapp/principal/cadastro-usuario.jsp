@@ -161,7 +161,7 @@
 						</div>
 					</div>
 
-					<table class="table table-sm table-responsive">
+					<table class="table table-sm table-responsive" style="font-size: 18px; font-weight: 600;">
 						<thead>
 							<tr>
 								<th scope="col">ID</th>
@@ -230,10 +230,26 @@
 			document.getElementById("nomeBusca").value = '';/*limpa o campo após a busca*/
 		}
 
+		/*Com ajax não existe redicrecionamento e nem recarregamento*/
 		function buscarUsuario() {
 			var nomeBusca = document.getElementById('nomeBusca').value;
 			if (nomeBusca != null && nomeBusca != '' && nomeBusca.trim() != '') {//validando para verificar se tem valor para buscar no banco de dados
-				alert(nomeBusca);
+
+				var urlAction = document.getElementById('formUsuario').action;
+				
+				//fazendo o ajax
+				$.ajax({
+					method: 'GET',
+					url: urlAction,
+					data: 'nomeBusca=' + nomeBusca + '&acao=buscarUserComAjax',
+					success: function(response) {
+						
+						
+					}
+					
+				}).fail(function(xhr, status, errorThrow) {
+					alert('Erro ao buscar registro por nome: ' + xhr.responseText);
+				});
 				limparCampoBusca();
 			}
 		}

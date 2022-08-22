@@ -4,6 +4,7 @@ body {
 	background-color: #9C9C9C;
 	font-family: 'Sarala', sans-serif;
 	margin: 0px;
+	padding: 0px;
 }
 
 form {
@@ -11,6 +12,7 @@ form {
 	padding-top: 40px;
 }
 
+/*
 .card{
 	border-radius: 5px;
 	padding: 15px;
@@ -21,18 +23,15 @@ form {
 	left: 30%;
 	right: 30%;
 	
-	width: 32vw;
-	
+	width: 10rem;
 }
 
-
 .card-body{
-	width: 60vw;
+	width: 50rem;
 }
 
 .card-header h1{
 	font-size: 25px;
-	
 }
 
 .card-header pagerro {
@@ -47,6 +46,6 @@ form {
 	font-weight: bold;
 }
 
-
+*/
 
 

@@ -12,21 +12,19 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
     	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    	
-    <script type="text/javascript" src="resources/js/notify.js"></script>
+    <link rel="stylesheet" href="resources/css/styles.css">	
     
-    <link rel="stylesheet" href="resources/css/styles.css" type="text/css">
 	<title>Projeto JSP</title>
 </head>
 <body>
-	
+
+	<div class="alert alert-primary" role="alert">
+		<strong><h6 id="msgErro">${msgErro}</h6></strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+
 	<div class="card">
 		
-		<div class="alert alert-primary" role="alert">
-			<strong><h6 id="msgErro">${msgErro}</h6></strong>
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-	
 		<div class="card-body">
 
 			<form action="<%= request.getContextPath() %>/ServletLogin" method="post" 
@@ -37,7 +35,7 @@
 				<div class="mb-3">
 					<label for="login" class="form-label">Login:</label> 
 					<input id="login" type="text" name="login" class="form-control" 
-						placeholder="Digite seu login" required="required">
+						placeholder="Digite seu login" required="required" autofocus="autofocus">
 					<div class="invalid-feedback">
 				       Campo obrigatório
 				    </div>

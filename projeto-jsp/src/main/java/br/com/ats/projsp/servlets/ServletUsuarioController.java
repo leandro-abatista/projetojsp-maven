@@ -45,6 +45,10 @@ public class ServletUsuarioController extends HttpServlet {
 
 				repository.deletar(Long.parseLong(idUser));
 				response.getWriter().write(mensagemExclusao);//isso é usado para o ajax
+			} else if (acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("buscarUserComAjax")) {
+				String nomeBusca = request.getParameter("nomeBusca");
+				
+				//response.getWriter().write(mensagemExclusao);//isso é usado para o ajax
 			} else {
 				request.getRequestDispatcher("principal/cadastro-usuario.jsp").forward(request, response);
 			}
